@@ -1,0 +1,55 @@
+<div class="container pt-2">
+  <h2>Add New Data</h2>
+  <div class="row">
+    <div class="col-12 ml-2">
+      <form class="row g-3 needs-validation" autocomplete="off" (ngSubmit)="updatePMC()" #add="ngForm" novalidate
+        *ngIf="entity">
+        <div class="col-md-12">
+          <label for="validationCustom02" class="form-label">are_batteries_included</label>
+          <input type="text" class="form-control" name="are_batteries_included" #are_batteries_included="ngModel"
+            [(ngModel)]="entity.are_batteries_included" minlength="3" required />
+          <span class="text-danger" *ngIf="!are_batteries_included.valid && are_batteries_included.touched">
+            Are_batteries_included is required
+          </span>
+        </div>
+        <div class="col-md-12">
+          <label for="validationCustom02" class="form-label">back_finding</label>
+          <input type="text" class="form-control" name="back_finding" #back_finding="ngModel"
+            [(ngModel)]="entity.back_finding" required />
+          <span class="text-danger" *ngIf="back_finding.invalid && back_finding.touched">
+            Back_finding is required
+          </span>
+        </div>
+        <div class="col-md-12">
+          <label for="validationCustomUsername" class="form-label">batteries_required</label>
+          <input type="text" class="form-control" aria-describedby="inputGroupPrepend" name="batteries_required"
+            #batteries_required="ngModel" [(ngModel)]="entity.batteries_required" minlength="3" required />
+          <span class="text-danger" *ngIf="batteries_required.invalid && batteries_required.touched">
+            Batteries_required is required
+          </span>
+        </div>
+        <div class="col-md-12">
+          <label for="validationCustom03" class="form-label">battery_cell_composition</label>
+          <input type="text" class="form-control" name="battery_cell_composition" #battery_cell_composition="ngModel"
+            [(ngModel)]="entity.battery_cell_composition" required />
+          <span class="text-danger" *ngIf="battery_cell_composition.invalid && battery_cell_composition.touched">
+            battery_cell_composition is required
+          </span>
+        </div>
+        <div class="col-md-12">
+          <label for="validationCustom03" class="form-label">battery_type1</label>
+          <input type="text" class="form-control" name="battery_type1" #battery_type1="ngModel"
+            [(ngModel)]="entity.battery_type1" required />
+          <span class="text-danger" *ngIf="battery_type1.invalid && battery_type1.touched">
+            battery_type1 is required
+          </span>
+        </div>
+        <div class="col-12 mt-2">
+          <button class="btn btn-primary" [disabled]="add.invalid" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
